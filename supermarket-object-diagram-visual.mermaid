@@ -1,0 +1,207 @@
+classDiagram
+    class produk_001{
+        nama: "Beras Premium"
+        harga: 15000
+        kategori: "Bahan Pokok"
+        barcode: "8992775110011"
+    }
+    
+    class produk_002{
+        nama: "Susu Ultra"
+        harga: 5000
+        kategori: "Minuman"
+        barcode: "8992775220022"
+    }
+    
+    class produk_003{
+        nama: "Deterjen Rinso"
+        harga: 18000
+        kategori: "Pembersih"
+        barcode: "8992775330033"
+    }
+    
+    class inventory_001{
+        stokTersedia: 50
+        minimumStok: 10
+        tanggalUpdate: "2025-03-10"
+    }
+    
+    class inventory_002{
+        stokTersedia: 120
+        minimumStok: 20
+        tanggalUpdate: "2025-03-12"
+    }
+    
+    class inventory_003{
+        stokTersedia: 35
+        minimumStok: 15
+        tanggalUpdate: "2025-03-14"
+    }
+    
+    class pemasok_001{
+        nama: "PT Boga Sari"
+        kontak: "021-5551234"
+        alamat: "Jl. Industri No. 45, Jakarta"
+    }
+    
+    class pemasok_002{
+        nama: "CV Sukses Mandiri"
+        kontak: "021-7775678"
+        alamat: "Jl. Raya Bogor Km. 30, Depok"
+    }
+    
+    class laporan_feb2025{
+        periode: "Februari 2025"
+        pendapatan: 450000000
+        pengeluaran: 350000000
+        laba: 100000000
+    }
+    
+    class karyawan_001{
+        nama: "Budi Santoso"
+        posisi: "Kasir"
+        gaji: 4500000
+        jadwalKerja: "Senin-Jumat 08:00-16:00"
+    }
+    
+    class karyawan_002{
+        nama: "Siti Rahayu"
+        posisi: "Staf Gudang"
+        gaji: 4200000
+        jadwalKerja: "Senin-Sabtu 07:00-15:00"
+    }
+    
+    class pos_system{
+        versi: "3.5.2"
+        jumlahTerminal: 5
+        updateTerakhir: "2025-01-15"
+    }
+    
+    class sistem_inventaris{
+        versi: "2.1.4"
+        updateTerakhir: "2025-02-20"
+    }
+    
+    class website_supermarket{
+        domain: "www.supermarket-xyz.co.id"
+        fitur: "Katalog, Promo, Kartu Member"
+        pengunjungHarian: 1500
+    }
+    
+    class manager_001{
+        nama: "Anton Wijaya"
+        departemen: "Operasional"
+        tanggungJawab: "Supervisi Staff, Operasional Harian"
+    }
+    
+    class kulkas_001{
+        model: "Panasonic NR-456"
+        suhu: 4.0
+        kategoriProduk: "Dairy"
+    }
+    
+    class kulkas_002{
+        model: "Sharp VR-200"
+        suhu: -18.0
+        kategoriProduk: "Frozen Food"
+    }
+    
+    class rak_010{
+        id: 10
+        lokasi: "Tengah Toko"
+        kategoriProduk: "Sembako"
+    }
+    
+    class sop_pembayaran{
+        nama: "Prosedur Pembayaran"
+        deskripsi: "Protokol penanganan transaksi pembayaran"
+        tanggalUpdate: "2025-02-05"
+    }
+    
+    class cctv_001{
+        jumlahKamera: 12
+        kapasitasPenyimpanan: 4000
+        lokasi: "Area Kasir, Gudang, Pintu Masuk, Area Belanja"
+    }
+    
+    class admin_sistem{
+        nama: "Dian Kusuma"
+        hakAkses: "Full Access"
+        username: "dian.admin"
+    }
+    
+    class modal_2025{
+        jumlah: 2000000000
+        sumber: "Investor A"
+        tanggalInvestasi: "2025-01-01"
+    }
+    
+    class komputer_kasir1{
+        model: "Dell OptiPlex 3080"
+        spesifikasi: "i5, 8GB RAM, 512GB SSD"
+        pengguna: "Kasir"
+    }
+    
+    class jaringan_toko{
+        jenisKoneksi: "Fiber Optic"
+        ISP: "Telkom"
+        bandwidthMaksimum: 200
+    }
+    
+    class wifi_staff{
+        SSID: "Supermarket_Staff"
+        password: "st4ff@2025"
+        kecepatan: 100
+    }
+    
+    class listrik_mar2025{
+        penggunaanHarian: 350
+        biayaBulanan: 15000000
+    }
+    
+    class lampu_area_belanja{
+        jumlah: 30
+        tipe: "LED"
+        dayaWatt: 15
+    }
+    
+    class label_001{
+        tipe: "RFID"
+        produkYangDilindungi: "Elektronik"
+    }
+    
+    class antena_001{
+        id: 1
+        lokasi: "Pintu Keluar"
+        status: "Aktif"
+    }
+    
+    %% Hubungan antar objek
+    produk_001 --> inventory_001: terdata di
+    produk_002 --> inventory_002: terdata di
+    produk_003 --> inventory_003: terdata di
+    produk_001 --> rak_010: dipajang di
+    produk_002 --> kulkas_001: disimpan di
+    pemasok_001 --> produk_001: memasok
+    pemasok_001 --> produk_002: memasok
+    pemasok_002 --> produk_003: memasok
+    manager_001 --> karyawan_001: mengelola
+    manager_001 --> karyawan_002: mengelola
+    manager_001 --> laporan_feb2025: bertanggung jawab atas
+    karyawan_001 --> sop_pembayaran: mengikuti
+    karyawan_001 --> pos_system: mengoperasikan
+    pos_system --> laporan_feb2025: menghasilkan
+    sistem_inventaris --> inventory_001: mengelola
+    sistem_inventaris --> inventory_002: mengelola
+    sistem_inventaris --> inventory_003: mengelola
+    cctv_001 --> admin_sistem: dipantau oleh
+    modal_2025 --> laporan_feb2025: terlacak dalam
+    komputer_kasir1 --> jaringan_toko: terhubung ke
+    komputer_kasir1 --> wifi_staff: terhubung ke
+    listrik_mar2025 --> lampu_area_belanja: menyalakan
+    listrik_mar2025 --> kulkas_001: menjalankan
+    listrik_mar2025 --> kulkas_002: menjalankan
+    antena_001 --> label_001: mendeteksi
+    website_supermarket --> jaringan_toko: bergantung pada
+    admin_sistem --> sistem_inventaris: mengelola
+    admin_sistem --> website_supermarket: mengelola

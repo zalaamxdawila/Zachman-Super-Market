@@ -1,0 +1,175 @@
+classDiagram
+    class Produk {
+        +String nama
+        +float harga
+        +String kategori
+        +String barcode
+    }
+    
+    class Inventory {
+        +int stokTersedia
+        +int minimumStok
+        +Date tanggalUpdate
+    }
+    
+    class Pemasok {
+        +String nama
+        +String kontak
+        +String alamat
+    }
+    
+    class LaporanKeuangan {
+        +Date periode
+        +float pendapatan
+        +float pengeluaran
+        +float laba
+    }
+    
+    class Karyawan {
+        +String nama
+        +String posisi
+        +float gaji
+        +String jadwalKerja
+    }
+    
+    class Website {
+        +String domain
+        +String fitur
+        +int pengunjungHarian
+    }
+    
+    class SistemPOS {
+        +String versi
+        +int jumlahTerminal
+        +Date updateTerakhir
+    }
+    
+    class SistemManajemenInventaris {
+        +String versi
+        +Date updateTerakhir
+    }
+    
+    class CCTV {
+        +int jumlahKamera
+        +int kapasitasPenyimpanan
+        +String lokasi
+    }
+    
+    class Kulkas {
+        +String model
+        +float suhu
+        +String kategoriProduk
+    }
+    
+    class Troli {
+        +int id
+        +String kondisi
+        +float kapasitas
+    }
+    
+    class Manager {
+        +String nama
+        +String departemen
+        +String tanggungJawab
+    }
+    
+    class RakGondala {
+        +int id
+        +String lokasi
+        +String kategoriProduk
+    }
+    
+    class LabelKeamanan {
+        +String tipe
+        +String produkYangDilindungi
+    }
+    
+    class AntenaEAS {
+        +int id
+        +String lokasi
+        +String status
+    }
+    
+    class Listrik {
+        +float penggunaanHarian
+        +float biayaBulanan
+    }
+    
+    class Lampu {
+        +int jumlah
+        +String tipe
+        +float dayaWatt
+    }
+    
+    class SOP {
+        +String nama
+        +String deskripsi
+        +Date tanggalUpdate
+    }
+    
+    class Komputer {
+        +String model
+        +String spesifikasi
+        +String pengguna
+    }
+    
+    class Modal {
+        +float jumlah
+        +String sumber
+        +Date tanggalInvestasi
+    }
+    
+    class Wifi {
+        +String SSID
+        +String password
+        +float kecepatan
+    }
+    
+    class Jaringan {
+        +String jenisKoneksi
+        +String ISP
+        +float bandwidthMaksimum
+    }
+    
+    class Admin {
+        +String nama
+        +String hakAkses
+        +String username
+    }
+
+    %% Relasi antara entitas
+    Produk "1" -- "1" Inventory: terdata di
+    Produk "n" -- "1" RakGondala: dipajang di
+    Produk "n" -- "1" Kulkas: disimpan di
+    Produk "1" -- "1" LabelKeamanan: dilindungi oleh
+    
+    Pemasok "1" -- "n" Produk: memasok
+    
+    Manager "1" -- "n" Karyawan: mengelola
+    Manager "1" -- "1" LaporanKeuangan: bertanggung jawab atas
+    
+    Karyawan "n" -- "1" SOP: mengikuti
+    Karyawan "n" -- "1" SistemPOS: mengoperasikan
+    
+    Admin "1" -- "1" SistemManajemenInventaris: mengelola
+    Admin "1" -- "1" Website: mengelola
+    
+    SistemPOS "1" -- "1" LaporanKeuangan: menghasilkan
+    SistemPOS "1" -- "n" Produk: mencatat penjualan
+    
+    SistemManajemenInventaris "1" -- "1" Inventory: mengelola
+    
+    CCTV "n" -- "1" Admin: dipantau oleh
+    
+    Modal "1" -- "1" LaporanKeuangan: terlacak dalam
+    
+    Komputer "n" -- "1" Jaringan: terhubung ke
+    Komputer "n" -- "1" Wifi: terhubung ke
+    
+    Listrik "1" -- "n" Lampu: menyalakan
+    Listrik "1" -- "n" Kulkas: menjalankan
+    Listrik "1" -- "n" Komputer: menghidupkan
+    
+    AntenaEAS "n" -- "n" LabelKeamanan: mendeteksi
+    
+    Website "1" -- "1" Jaringan: bergantung pada

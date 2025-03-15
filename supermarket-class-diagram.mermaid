@@ -1,0 +1,301 @@
+classDiagram
+    class Produk {
+        -String id
+        -String nama
+        -float harga
+        -String kategori
+        -String barcode
+        -Date tanggalKadaluarsa
+        +tambahProduk()
+        +updateHarga()
+        +cekStok()
+        +hapusProduk()
+    }
+    
+    class Inventory {
+        -int stokTersedia
+        -int minimumStok
+        -Date tanggalUpdate
+        +updateInventory()
+        +cekStokMinimum()
+        +laporkanStok()
+        +hitungNilaiInventory()
+    }
+    
+    class Pemasok {
+        -String id
+        -String nama
+        -String kontak
+        -String alamat
+        -String NPWP
+        +tambahPemasok()
+        +updateInfo()
+        +lakukanPemesanan()
+        +evaluasiKinerja()
+    }
+    
+    class LaporanKeuangan {
+        -String id
+        -Date periode
+        -float pendapatan
+        -float pengeluaran
+        -float laba
+        -float pajak
+        +buatLaporan()
+        +hitungLaba()
+        +eksporPDF()
+        +analisaTren()
+    }
+    
+    class Karyawan {
+        -String id
+        -String nama
+        -String posisi
+        -float gaji
+        -String jadwalKerja
+        -String kontakDarurat
+        +tambahKaryawan()
+        +hitungGaji()
+        +aturJadwal()
+        +evaluasiKinerja()
+    }
+    
+    class Website {
+        -String domain
+        -String fitur
+        -int pengunjungHarian
+        -String hostingProvider
+        +updateKonten()
+        +monitorTraffic()
+        +kelolaBlog()
+        +integrasiPembayaran()
+    }
+    
+    class SistemPOS {
+        -String versi
+        -int jumlahTerminal
+        -Date updateTerakhir
+        -String lisensi
+        +prosesTransaksi()
+        +cetakStruk()
+        +laporanHarian()
+        +manajemenDiskon()
+    }
+    
+    class SistemManajemenInventaris {
+        -String versi
+        -Date updateTerakhir
+        -String lisensi
+        +trackStok()
+        +notifikasiStokMinimum()
+        +generasiLaporan()
+        +integrasiPOS()
+    }
+    
+    class CCTV {
+        -int id
+        -int jumlahKamera
+        -int kapasitasPenyimpanan
+        -String lokasi
+        -Date tanggalInstalasi
+        +rekamVideo()
+        +putar()
+        +backup()
+        +konfigurasiBandwidth()
+    }
+    
+    class Kulkas {
+        -String id
+        -String model
+        -float suhu
+        -String kategoriProduk
+        -Date tanggalMaintenance
+        +aturSuhu()
+        +jadwalkanMaintenance()
+        +monitorKinerja()
+        +hitungEfisiensiEnergi()
+    }
+    
+    class Troli {
+        -int id
+        -String kondisi
+        -float kapasitas
+        -Date tanggalPembelian
+        +periksaKondisi()
+        +tandaiRusak()
+        +perbaiki()
+        +hitungInventarisTroli()
+    }
+    
+    class Manager extends Karyawan {
+        -String departemen
+        -String tanggungJawab
+        -int timSize
+        +evaluasiTim()
+        +buatLaporan()
+        +implementasiKebijakan()
+        +setTarget()
+    }
+    
+    class RakGondala {
+        -int id
+        -String lokasi
+        -String kategoriProduk
+        -int kapasitas
+        +tambahProduk()
+        +reorganisasi()
+        +cekKetersediaan()
+        +optimasiTata()
+    }
+    
+    class LabelKeamanan {
+        -String id
+        -String tipe
+        -String produkYangDilindungi
+        -boolean aktif
+        +aktifkan()
+        +nonaktifkan()
+        +cekStatus()
+        +pasangPadaProduk()
+    }
+    
+    class AntenaEAS {
+        -int id
+        -String lokasi
+        -String status
+        -Date tanggalKalibrasi
+        +aktifkan()
+        +nonaktifkan()
+        +kalibrasi()
+        +laporkanInsiden()
+    }
+    
+    class Listrik {
+        -String id
+        -float penggunaanHarian
+        -float biayaBulanan
+        -String penyedia
+        +monitorPenggunaan()
+        +hitungBiaya()
+        +optimasiPenggunaan()
+        +laporkanGangguan()
+    }
+    
+    class Lampu {
+        -int id
+        -int jumlah
+        -String tipe
+        -float dayaWatt
+        -Date tanggalPenggantian
+        +hidupkan()
+        +matikan()
+        +ganti()
+        +hitungEfisiensi()
+    }
+    
+    class SOP {
+        -String id
+        -String nama
+        -String deskripsi
+        -Date tanggalUpdate
+        -String penanggungjawab
+        +buatSOP()
+        +revisiSOP()
+        +evaluasiKepatuhan()
+        +distribusikeKaryawan()
+    }
+    
+    class Komputer {
+        -String id
+        -String model
+        -String spesifikasi
+        -String pengguna
+        -Date tanggalPembelian
+        +install()
+        +update()
+        +backup()
+        +troubleshoot()
+    }
+    
+    class Modal {
+        -String id
+        -float jumlah
+        -String sumber
+        -Date tanggalInvestasi
+        -float returnExpected
+        +tambahModal()
+        +hitungROI()
+        +laporkanPenggunaan()
+        +alokasikan()
+    }
+    
+    class Wifi {
+        -String id
+        -String SSID
+        -String password
+        -float kecepatan
+        -int maxConnections
+        +resetPassword()
+        +limitBandwidth()
+        +monitorPenggunaan()
+        +updateFirmware()
+    }
+    
+    class Jaringan {
+        -String id
+        -String jenisKoneksi
+        -String ISP
+        -float bandwidthMaksimum
+        -Date tanggalKontrak
+        +monitorPerforma()
+        +troubleshoot()
+        +configureFirewall()
+        +upgradeBandwidth()
+    }
+    
+    class Admin extends Karyawan {
+        -String hakAkses
+        -String username
+        -String departemen
+        +kelolaUser()
+        +backupData()
+        +monitorSistem()
+        +updateSoftware()
+    }
+
+    %% Class Relationships
+    Produk "1" -- "1" Inventory: terdata di
+    Produk "n" -- "1" RakGondala: dipajang di
+    Produk "n" -- "1" Kulkas: disimpan di
+    Produk "1" -- "1" LabelKeamanan: dilindungi oleh
+    
+    Pemasok "1" -- "n" Produk: memasok
+    
+    Manager "1" -- "n" Karyawan: mengelola
+    Manager "1" -- "1" LaporanKeuangan: bertanggungjawab
+    
+    Karyawan "n" -- "1" SOP: mengikuti
+    Karyawan "n" -- "1" SistemPOS: mengoperasikan
+    
+    SistemPOS "1" -- "1" LaporanKeuangan: menghasilkan
+    SistemPOS "1" -- "n" Produk: mencatat
+    
+    SistemManajemenInventaris "1" -- "1" Inventory: mengelola
+    
+    CCTV "n" -- "1" Admin: dipantau oleh
+    
+    Modal "1" -- "1" LaporanKeuangan: terlacak dalam
+    
+    Komputer "n" -- "1" Jaringan: terhubung ke
+    Komputer "n" -- "1" Wifi: terhubung ke
+    
+    Listrik "1" -- "n" Lampu: menyalakan
+    Listrik "1" -- "n" Kulkas: menjalankan
+    Listrik "1" -- "n" Komputer: menghidupkan
+    
+    AntenaEAS "n" -- "n" LabelKeamanan: mendeteksi
+    
+    Website "1" -- "1" Jaringan: bergantung pada
+    
+    Admin "1" -- "1" SistemManajemenInventaris: mengelola
+    Admin "1" -- "1" Website: mengelola
